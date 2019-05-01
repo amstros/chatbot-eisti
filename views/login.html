@@ -1,0 +1,53 @@
+<html>
+
+<style type="text/css">
+	#center{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		width:100%;
+		height:65%;
+	}
+	#center p{
+		display: inline-block;
+		margin: 5px;
+	}
+	#center h1{
+		font-family: "Courier";
+	}
+	#center button{
+		display: block;
+		width: 105px;
+		height:30px;
+	}
+	#milieu{
+		text-align: center;
+	}
+</style>
+<div id="center">
+		<h1>Chatbot</h1>
+	<div id="milieu">
+		<p>Connexion au chatbot (via arel):</p>
+		<p>Username : <input type="text"  id="login"></p>
+		<p>Password : <input type="password" id="pass"></p><br>
+		<p><button id="send" onclick="valider()">Valider</button></p>	
+	</div>
+</div>
+<script type="text/javascript">
+	function valider(){
+		var user = document.getElementById('login');
+		var pass = document.getElementById('pass');
+
+		document.getElementById('send').disabled=true;
+		user.disabled = true;
+		pass.disabled = true;
+		
+		socket.emit('connexion',user.value,pass.value);
+		}
+	
+	socket.on('connexion',function(contenu){
+		document.getElementById('chatbox').innerHTML = contenu;
+	});
+</script>
+</html>

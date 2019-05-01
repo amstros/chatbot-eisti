@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html style="scroll-behavior: smooth;border:0;">
+<head>
+	<title>TIPE - Chatbot</title>
+	<!-- <link rel="stylesheet" type="text/css" href="index.css"> -->
+	 <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+
+	<meta charset="utf-8">
+</head>
+<style type="text/css">
+/*CSS classique*/
+body{
+	margin:0;
+	padding:0;
+	font-family: Courier;
+}
+#accueil{
+	display: inline-flex;
+	align-items: center;	
+	justify-content: center;	
+	flex-wrap: wrap;	
+	height: 100vh;
+	width: 100%;
+	background: white;
+}
+
+
+#titre{
+	display: inline-flex;
+	align-items: center;	
+	justify-content: center;	
+	flex-wrap: wrap;
+	padding-bottom:15vh;
+}
+
+
+#titre p{
+	width: 66%;
+	padding:10px;
+	font-size: 2vw;
+	vertical-align: bottom;
+		
+}
+#titre img{
+	width: 15%;
+	padding:10px;
+		vertical-align: bottom;
+
+}
+
+#menu{
+	 overflow: hidden;
+        bottom:0px;
+        position: sticky;
+        top:0px;
+        display:flex;
+        flex-wrap: wrap;
+        -webkit-align-items: center;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        border-width: medium;
+        border-style: solid;
+        border-width: 2px 0 2px 0;
+        border-color: #dedede;
+        z-index: 1;
+        width: 100%;
+        background-color: white;
+
+}
+
+#menu nav{
+		 width: 96%;
+        display:flex;
+        flex-wrap: wrap;
+        -webkit-align-items: center;
+        align-items: center;
+        justify-content: center;
+
+}
+#menu img{
+	width:2.5%;
+	height: auto;
+}
+#menu a{
+		display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 15%;
+        height: 50px;
+        text-decoration: none;
+        font-size: 100%;
+        color: grey;
+        font-weight: bold;
+
+}
+#menu a:hover{
+	background-color: #77DAFF;
+	border-radius:2px;
+}
+
+#infos{
+	background: url("views/images/back1.png") center fixed no-repeat;
+	background-size: cover;
+	height: 100vh;
+}
+
+#chatbot{
+	background: url("views/images/back2.png") center fixed no-repeat;
+	background-size: cover;
+	height: 100vh;
+}
+
+#contact{
+	background: url("views/images/back3.png") center fixed no-repeat;
+	background-size: cover;
+	height: 100vh;
+}
+/*CSS mobile*/	
+@media screen and (max-width: 1000px) {
+	body{
+		background:red;	
+	}
+	#accueil p{
+		margin:0;
+		width: 75%;
+		font-size: 4vw;
+		vertical-align: bottom;
+		text-align: center;		
+	}
+	#accueil img{
+		width: 25%;
+		vertical-align: bottom;
+	}
+	
+}
+</style>
+<body>
+	<div id="accueil">
+		<div id="titre">
+				<img src="views/images/EISTI.svg">
+				<p>TIPE 2018-2019 : ChatBot<br> Etienne COULEMEAU - Nahia GORRICHON - Thomas SERABIAN</p>
+		</div>
+	</div>
+	<div id="menu">
+		<img src="views/images/EISTI.svg">	
+		<nav>
+			<a href="#accueil">Accueil</a>
+			<a href="#infos">Infos</a>
+			<a href="#chatbot">Chatbot</a>
+			<a href="#contact">Nous Contacter</a>
+		</nav>
+	</div>
+	<div id="infos"></div>
+	<div id="chatbot"></div>
+	<div id="contact"></div>
+</body>
+</html>
