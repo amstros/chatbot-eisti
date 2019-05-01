@@ -1,4 +1,4 @@
-var socket = io.connect('http://localhost:8080');
+var socket = io.connect('http://localhost:5000');
 
 function connexion(){
 		var user = document.getElementById('login');
