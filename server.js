@@ -276,5 +276,5 @@ io.sockets.on('connection', function (socket) {
 });
 
 server.listen(5000, function(){
-	consoloe.log('server started on PORT 5000');
+	console.log('server started on PORT 5000');
 });
