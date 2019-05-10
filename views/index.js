@@ -1,4 +1,4 @@
-var socket = io.connect('http://localhost:37763');
+//var socket = io.connect('http://localhost:37763');
 
 function connexion(){
 		var user = document.getElementById('login');
