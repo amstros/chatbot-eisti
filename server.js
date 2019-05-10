@@ -6,6 +6,8 @@ var RedisStore = require("connect-redis")(session);
 var bodyParser = require('body-parser');
 var request = require('request');
 
+const PORT = process.env.PORT || 5000
+
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var app = express();
 
@@ -275,6 +277,6 @@ io.sockets.on('connection', function (socket) {
 	});
 });
 
-server.listen(5000, function(){
-	console.log('server started on PORT 5000');
+server.listen(PORT, function(){
+	console.log('server started on PORT '+PORT);
 });
