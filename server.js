@@ -242,7 +242,7 @@ io.sockets.on('connection', function (socket) {
 		
 		console.log(socket.request.session.token+" : "+content);
 		analyse(content.toLowerCase(),socket.request.session,function traitement(res) {
-			console.log(socket.request.session.token+" : "+res);
+			console.log(socket.request.session.token+" : "+JSON.stringify(res));
 			socket.request.session.query = res;
 			var url = {
 				absence:'me/absences',
