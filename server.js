@@ -67,6 +67,7 @@ function requeteAuth(username,password,callback){
        		'format' : 'json'
    		}
    	}
+	console.log(username);
    	request(option,callback);
 }
 
@@ -217,6 +218,7 @@ io.sockets.on('connection', function (socket) {
 		requeteAuth(login,mdp,function(err,res,body){
 			if (res.statusCode==200){
 				socket.request.session.token = JSON.parse(body).access_token
+				console.log(login+' est log en tant que '+socket.request.session.token);
 				fs.readFile('views/chatbot.html',function (err,content) {
 					socket.emit('connexion',content.toString());
 				})
@@ -237,9 +239,10 @@ io.sockets.on('connection', function (socket) {
 	});
 
 	socket.on('msg',function(content){
-
+		
+		console.log(socket.request.session.token+" : "+content);
 		analyse(content.toLowerCase(),socket.request.session,function traitement(res) {
-
+			console.log(socket.request.session.token+" : "+res);
 			socket.request.session.query = res;
 			var url = {
 				absence:'me/absences',
