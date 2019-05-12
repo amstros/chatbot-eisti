@@ -23,9 +23,9 @@ function connexion(){
 
 function envoyer(){
 
-	var txt = document.getElementById('box').value;
+	var txt = document.getElementById('textbox').value;
 	var chat = document.getElementById('chat');
-	document.getElementById('box').value = "";
+	document.getElementById('textbox').value = "";
 	txt= txt.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
 	if (txt != "") {

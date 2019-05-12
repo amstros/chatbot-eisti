@@ -1,39 +1,12 @@
-<html>
 
-<style type="text/css">
-	#center{
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		flex-wrap: wrap;
-		width:100%;
-		height:65%;
-	}
-	#center p{
-		display: inline-block;
-		margin: 5px;
-	}
-	#center h1{
-		font-family: "Courier";
-	}
-	#center button{
-		display: block;
-		width: 105px;
-		height:30px;
-	}
-	#milieu{
-		text-align: center;
-	}
-</style>
-<div id="center">
-		<h1>Chatbot</h1>
-	<div id="milieu">
-		<p>Connexion au chatbot (via arel):</p>
-		<p>Username : <input type="text"  id="login"></p>
-		<p>Password : <input type="password" id="pass"></p><br>
-		<p><button id="send" onclick="valider()">Valider</button></p>	
+<div id="form" class="centerer"><h3 style="width: 100%;text-align: left;">Chatbot :</h3><p>Connexion au chatbot (via arel)&nbsp;:</p>
+	<div  style="display:block;width: 100%;text-align: center;">
+		<p>Username&nbsp;:&nbsp;<input placeholder="Username" type="text"  id="login"></p>
+		<p>Password&nbsp;:&nbsp;<input placeholder="Password"type="password" id="pass"></p><br>
+	<button  id="send" onclick="valider()">Connexion</button>
 	</div>
 </div>
+
 <script type="text/javascript">
 	function valider(){
 		var user = document.getElementById('login');
@@ -50,4 +23,3 @@
 		document.getElementById('chatbox').innerHTML = contenu;
 	});
 </script>
-</html>

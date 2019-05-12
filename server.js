@@ -180,7 +180,7 @@ var texte = 'Tu as '+json.length+' absences';
 function Err(session,perso){
 	session.query.time += 1;
 	res = "Que veux tu savoir "
-	if (session.query.time > 1){res="Je n'ai pas compris votre requete"}
+	if (session.query.time > 1){res="Je n'ai pas compris votre requête."}
 	else{
 		res+=perso
 	}
@@ -273,7 +273,7 @@ io.sockets.on('connection', function (socket) {
 				});
 				break;
 				default:
-					res = "Je n'ai pas compris votre requete";
+					res = "Je n'ai pas compris votre requête.";
 					socket.emit('msg',res)
 			}
 		});
