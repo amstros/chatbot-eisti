@@ -1,0 +1,25 @@
+
+<div id="form" class="centerer"><h3 style="width: 100%;text-align: left;">Chatbot :</h3><p>Connexion au chatbot (via arel)&nbsp;:</p>
+	<div  style="display:block;width: 100%;text-align: center;">
+		<p>Username&nbsp;:&nbsp;<input placeholder="Username" type="text"  id="login"></p>
+		<p>Password&nbsp;:&nbsp;<input placeholder="Password"type="password" id="pass"></p><br>
+	<button  id="send" onclick="valider()">Connexion</button>
+	</div>
+</div>
+
+<script type="text/javascript">
+	function valider(){
+		var user = document.getElementById('login');
+		var pass = document.getElementById('pass');
+
+		document.getElementById('send').disabled=true;
+		user.disabled = true;
+		pass.disabled = true;
+		
+		socket.emit('connexion',user.value,pass.value);
+		}
+	
+	socket.on('connexion',function(contenu){
+		document.getElementById('chatbox').innerHTML = contenu;
+	});
+</script>

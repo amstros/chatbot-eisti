@@ -4,293 +4,16 @@
 	<title>Chatbot</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
 	<script src="/socket.io/socket.io.js"></script>
 	<script type="text/javascript" src="index.js"></script>
 </head>
-<style type="text/css">
-	body{
-		margin:0;
-		padding: 0;
-		font-family: Roboto;
-		font-size: 110%;
-        color:rgb(145,145,140);
-		background-color: rgb(40,41,35);	}
-	#accueil{
-		background:url('images/back1.png') fixed center no-repeat;
-		background-size : cover;
-		height: calc(100vh - 54px);
-
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-wrap: wrap;
-		
-	}
-	#accueil img{
-		width:15%;
-		-moz-box-shadow: 0px 0px 50px 1px #656565;
-		-webkit-box-shadow: 0px 0px 50px 1px #656565;
-		-o-box-shadow: 0px 0px 50px 1px #656565;
-		box-shadow: 0px 0px 50px 1px #656565;
-		filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=NaN, Strength=50);	
-	}
-
-	#menu{
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-wrap: wrap;
-		height: 50px;
-		background-color: rgb(40,41,35);
-		border : rgb(62,61,60) solid; 
-		border-width: 2px 0px 2px 0px;
-		position: sticky;
-		top:0;
-		bottom:0;
-		z-index:100;
-	}
-	#menu a{
-		text-decoration: none;
-		color: rgb(140,140,140);
-		font-size: 110%;
-		}
-	#open{
-		width: 100%;
-		display: none;
-	}
-	#close{
-		width: 100%;
-		display: none;
-	}
-
-	.liens{
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-wrap: wrap;
-		text-align: center;
-		width: 100%;
-		background-color: rgb(40,41,35);
-	}
-
-	.liens a{
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 15%;
-		height: 50px;
-	}
-	.liens a:hover{
-		background-color: rgb(62,61,60);
-		transition: 0.3s;
-	}
-
-
-    #infos {
-        padding-top:56px;
-    }
-	
-	.centerer {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-
-	
-	.title {
-        flex-basis: 100%;
-        margin:20px;
-        font-size: 200%;
-        text-shadow: 0 0 1em black;
-        text-align: center;
-        text-align: center;
-        font-variant: small-caps;
-      }
-
-      .box {
-        display: flex;
-        width: 500px;
-        background-color: rgb(30,31,25);
-        padding: 20px;
-        margin: 10px;
-        min-height: 320px;
-        height:auto;
-        overflow: hidden;
-        border-radius: 2px;
-        text-align: justify;
-      }
-
-     #chatbot {
-        padding-top:33px;
-     }
-	#Chatbot{
-		background: url("images/back2.png") fixed center no-repeat;
-		background-size : cover;
-		min-height: calc(100vh - 93px);
-
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-wrap: wrap;
-		direction: rtl;
-		
-	}
-	 .box2 {
-        display: flex;
-        width: 400px;
-        background-color: rgba(30,31,25,0.75);
-        padding: 30px;
-        margin: 10px 10px 10px 10px;
-        min-height: 400px;
-        height:auto;
-        overflow: hidden;
-        border-radius: 2px;
-        text-align: justify;
-        direction: ltr;
-      }
-      .box22 {
-        display: flex;
-        width: 450px;
-        background-color: rgba(30,31,25,0.75);
-        padding: 5px;
-        margin: 10px 10px 10px 10px;
-        min-height: 450px;
-        height:auto;
-        overflow: hidden;
-        border-radius: 2px;
-        text-align: justify;
-        direction: ltr;
-      }
-
-      #send{
-		
-        font-size:100%;
-        color:white;
-        height: 35px;
-        background-color:#006bac;
-        border:none;
-        border-radius: 3px;
-        cursor: pointer;
-	}
-	#form{
-		margin: 25px;
-		display: flex;	
-        justify-content: center;
-        flex-wrap: wrap;
-		width: auto;
-		text-align: center;
-		}
-	#form input{
-		border-radius: 15px;
-		background-color: #282923;
-		color: white;
-		padding: 5px 5px 5px 8px;
-		border: gray 1px solid;
-	}
-	#chat{
-		background-color: #1e1f19;
-		margin-bottom: 5px;
-		overflow-y: scroll;
-		height: 398px;
-		padding: 5px;
-	}
-
-	#textbox{
-		width: 95%;
-		border-radius: 15px;
-		background-color: #282923;
-		color: white;
-		padding: 5px 5px 5px 8px;
-		border: gray 1px solid;
-	}
-
-	.msgbot p{
-		display: inline-block;
-		max-width: 80%;
-		margin:2px;
-		border-radius:0px 10px 10px 10px;
-		background-color: #006bac;
-		padding: 5px;
-		color: white;
-	}
-	.msguser{
-	display:block;
-	text-align:right;
-}
-
-	.msguser p{
-		text-align: left;
-		display: inline-block;
-		margin:2px;
-		border-radius:10px 10px 0px 10px;
-		background-color: orange;
-		padding: 5px;
-		color: black;
-		max-width: 80%;
-	}
-
-      
-	@media screen and (max-width: 750px) {
-		#accueil img{
-			width:35%;
-		}
-		
-		#menu{
-			height:auto;
-		}
-		#open, #close{
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			text-align: center;
-			height: 50px;
-		}
-
-		#open a,#close a{
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			text-align: center;
-			width: 15%;
-			height: 50px;
-		}
-
-		.liens a{
-			display: none;
-			width: 100%;
-		}
-
-		#open:target{
-			display: none;		
-		}
-		#open:target ~ #close{
-			display: flex;		
-		}
-		#open:target ~ .liens a{
-			display: flex;		
-		}
-
-		
-		#open a:hover,#close a:hover{
-			background-color: rgb(62,61,60);
-		}
-		#close{
-			display: none;
-		}
-		.box2{
-			    margin: 10px 10px 10px 10px;
-		}
-	}
-	
-
-</style>
 <body>
 	<div id="accueil">
 		<img src="images/EISTI.svg">
 	</div>
-	
+
 	<div id="menu">
 		<div id="open"><a href="#open">&#9776;</a></div>
 		<div id="close"><a href="#fermer">&#10005;</a></div>
@@ -301,31 +24,31 @@
 			<!--<a href="#contact">Contact</a>-->
 		</div>
 	</div>
-	<div class="centerer" id="infos">
+
+	<div id="infos">
         <div class="title">Explications</div>
         <div class="box">
-          <span><h3>Le sujet&nbsp;:</h3> Durant notre première année de cycle préparatoire ingénieur, notre TIPE portait sur la comparaison entre le Traitement Automatique du Langage Naturel (TALN) et le machine learning. Nous avons déterminé quels traitements théoriques doivent être appliqués au langage pour que l'ordinateur puisse le comprendre&nbsp;: aspect syntaxique, morphologique, sémantique et pragmatique. Que ceux-ci soient pré-programmés et reconnus via des filtres prévus à cet effet par un développeur ou bien déduits et compris de façon automatique par un algorithme de machine </span>
-        </div>
-
-        <div class="box">
-          <span><h3>Comment&nbsp;?</h3>
-            Le fonctionne de notre chatbot repose sur la création d'un algorithme créé au cours de l'année. Un chatbot fonctionne de différentes manières. Il peut réagir à la voix de l’utilisateur ou lorsque celui-ci tape quelque chose sur son clavier.Le chatbot est alors capable de décrypter les mots-clés de la conversation afin d'y répondre de manière petinente. Par conséquent plus le message est précis et simple, plus il est facile pour le chatbot d’analyser la requête et d'y répondre.
-          </span>
-        </div>
-
-        <div class="br"></div>
-
-        <div class="box">
-          <span><h3>Le projet&nbsp;:</h3>
-            Notre projet fut de réaliser un chatbot permettant de répondre à des questions basiques. Traiter des requêtes vis à vis de chaque individus afin de rendre le contact ordinateur/humain ludique.
-          </span>
+          <span><h3>Le sujet&nbsp;:</h3> Durant notre première année de cycle préparatoire ingénieur, notre TIPE portait sur la comparaison entre les algoritmes procéduraux et de machine learning pour le Traitement Automatique du Langage Naturel (TALN). Nous avons déterminé quels traitements théoriques doivent être appliqués au langage pour que l'ordinateur puisse le comprendre&nbsp;: aspect syntaxique, morphologique, sémantique et pragmatique. Que ceux-ci soient pré-programmés et reconnus via des filtres prévus à cet effet par un développeur ou bien déduits et compris de façon automatique par un algorithme de machine learning</span>
         </div>
 
         <div class="box">
           <span> <h3>Qu'est ce qu'un chatbot&nbsp;:</h3>
-            Les chatbots sont les nouveaux outils web étant à l'origine de conversation instantanée. Ces nouveaux programmes sont doptés d'intelligence artificielle leur permettant de discuter avec des utilisateurs et de proposer des services adaptés à leurs demandes. Ces bots sont implantés au sein d'une application de messagerie instantanée ou d'un site web.
+            Les chatbots sont les nouveaux outils web étant à l'origine de conversation instantanée. Ces nouveaux programmes sont dotés d'intelligence artificielle leur permettant de discuter avec des utilisateurs et de proposer des services adaptés à leurs demandes. Ces bots sont généralement  implémentés au sein d'une application de messagerie instantanée ou d'un site web.
           </span>
     	</div>
+
+        <div class="box">
+          <span><h3>Le projet&nbsp;:</h3>
+            Notre projet fut de réaliser un chatbot permettant de répondre à des questions basiques. Traiter des requêtes vis à vis de chaque individu afin de rendre le contact ordinateur/humain ludique. Par choix et pour simplifier la vie des étudiants, nous avons voulu que note chatbot réponde à des questions vis à vis de Arel. L'utilisateur peut alors obtenir des informations sur sa scolarité en discutant avec ce chatbot
+          </span>
+        </div>
+
+        <div class="box">
+          <span><h3>Comment&nbsp;?</h3>
+            Le fonctionnement de notre chatbot repose sur un algorithme créé au long de l'année. Un chatbot peut fonctionner de différentes manières. Le chatbot est capable de décrypter les mots-clés de la conversation afin d'y répondre de manière pertinente. Par conséquent plus le message est précis et simple, plus il est facile pour le chatbot d’analyser la phrase et d'y répondre.
+          </span>
+        </div>
+ 
     </div>
 
     <div class="title" id="chatbot"><hr/>Le Chatbot :</div>
@@ -336,8 +59,9 @@
 		</div>
 		<div class="box2" >
 			 <span> <h3>Fonctionement&nbsp;:</h3>
-            Ceci est un texte décrivant le projet que nous allons réaliser. Par ailleurs ce site fait partie du projet.<br>Merci de votre lecture.
-          </span>
+			 	Voici EistiBot ! Pour intéragir avec, vous devez vous connecter avec vos identifiants arel pour que le chatbot ait accès à vos informations.
+			 	<br>Vous pourrez alors lui poser des questions variées sur votre scolarité telle que vos notes dans une certaine matière ou bien vos absences dans une autre ou encore vos cours à venir les différents jours de la semaine.
+        	</span>
 		</div>
 	</div>
 	<div id="contact"></div>

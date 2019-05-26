@@ -1,0 +1,39 @@
+{
+"objet":{
+	"note":["note"],
+	"absence":["absence","d'absence"],
+	"cours":["cours","commence"]},
+"matiere":{
+	"Algèbre linéaire et bilinéaire":["algebre","d'algebre"],
+	"Intégration et Probabilités":["inte","integration","d'inte","d'integration"],
+	"Mathématiques appliquées (CP2)":["maths","mathematiques"],
+	"Anglais (CPI2)":["d'anglais","anglais"],
+	"Français-Philosophie (CPI2)":["francais","fr"],
+	"Thermodynamique 2":["thermo","thermodynamique"],
+	"Instrumentation":["instru","instrumentation"],
+	"TIPE":["tipe"],
+	"Développement WEB : PHP-BDD":["d'info","info","informatique","d'informatique"],
+	"Algorithmique et programmation fonctionnelle":["algorithmique","programmation","algo","prog"],
+	"Analyse dans Rn":["analyse"],
+	"Séries":["series"],
+	"Atelier CPI2":["atelier"],
+	"Electronique numérique II":["electronique","electro"]},
+"types":{
+	"quand":["quand"],
+	"quoi":["quoi"],
+	"combien":["combien","nombre"]},
+"pres":{
+	"demain":["demain"],
+	"lundi":["lundi"],
+	"mardi":["mardi"],
+	"mercredi":["mercredi"],
+	"jeudi":["jeudi"],
+	"vendredi":["vendredi"],
+	"samedi":["samedi"],
+	"dimanche":["dimanche"],
+	"aujourd'hui":["aujourd'hui","ajd"],
+	"matin":["matin"],
+	"après-midi":["aprem","après-midi","après","midi"],
+
+	"derniere":["derniere"]}
+}
