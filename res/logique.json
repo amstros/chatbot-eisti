@@ -23,6 +23,7 @@
 	"quoi":["quoi"],
 	"combien":["combien","nombre"]},
 "pres":{
+	"moyenne":["moyenne"],
 	"demain":["demain"],
 	"lundi":["lundi"],
 	"mardi":["mardi"],

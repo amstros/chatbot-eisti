@@ -92,6 +92,7 @@ function analyse(message,session,callback) {
 			//Option pour les raccourcis de langages
 			if(session.query.type == 'combien' && session.query.matiere != undefined){session.query.objet='note';}	
 			if(session.query.type == 'quoi'){session.query.objet='cours'}
+			if(session.query.precision.includes('moyenne') && session.query.matiere != undefined){session.query.objet='note';}
 		}
 		callback(session.query)
 }

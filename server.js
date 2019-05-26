@@ -116,8 +116,9 @@ io.sockets.on('connection', function (socket) {
 				case 'note':
 				arel.requete(url['note'],socket.request.session.token,function(err,res,body) {
 					req = JSON.parse(body);
-					(socket.request.session.query.matiere != undefined)?texte = notes.get(socket.request.session,req.marks):texte=utils.Err(socket.request.session," sur tes notes ?");
-					
+					if(socket.request.session.query.matiere != undefined && socket.request.session.query.precision.includes("moyenne")){texte = notes.moyenne(socket.request.session,req.marks)}
+					else if(socket.request.session.query.matiere != undefined){texte = notes.get(socket.request.session,req.marks)}
+					else{texte=utils.Err(socket.request.session," sur tes notes?")};
 					socket.emit('msg',texte);
 				});
 				break;
