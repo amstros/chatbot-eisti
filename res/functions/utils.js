@@ -90,8 +90,8 @@ function analyse(message,session,callback) {
 
 		if (session.query.objet == undefined ) {
 			//Option pour les raccourcis de langages
-			(session.query.matiere != undefined && session.query.type == 'combien')?session.query.objet='note':session.query.objet=undefined;
-			(session.query.type == 'quoi')?session.query.objet='cours':session.query.objet=undefined;
+			if(session.query.type == 'combien' && session.query.matiere != undefined){session.query.objet='note';}	
+			if(session.query.type == 'quoi'){session.query.objet='cours'}
 		}
 		callback(session.query)
 }
