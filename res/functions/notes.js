@@ -22,7 +22,7 @@ function moyenne(session,json){
 		}
 	}
 	var moyenne = Snote / Scoef;
-	(texte == '') ? texte = "Pas de note trouvée en "+session.query.matiere:texte="Tu as "+moyenne+" en "+session.query.matiere+" :<br>";
+	(texte == '') ? texte = "Pas de note trouvée en "+session.query.matiere:texte="Tu as "+moyenne+" de moyenne en "+session.query.matiere+".<br>";
 	session.query.time = 2;
 	return texte;
 }
