@@ -7,7 +7,7 @@ function trouverDate(valeur){
 	}
 	else{
 		for (variable in jours) {
-			if (valeur.includes(variable)){date.setDate(ajd.getDate()+jours[variable]-ajd.getDay())}
+			if (valeur.includes(variable)){date.setDate(ajd.getDate()+7+jours[variable]-ajd.getDay())}
 		}
 	}
 	return date;
